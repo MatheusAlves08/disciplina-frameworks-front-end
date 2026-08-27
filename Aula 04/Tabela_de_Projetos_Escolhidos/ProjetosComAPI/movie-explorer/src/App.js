@@ -1,0 +1,177 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import { createTheme } from '@mui/material/styles';
+import { useMovieContext } from './context/MovieContext';
+import { useAuth } from './context/AuthContext';
+import { RecommendationProvider } from './context/RecommendationContext';
+
+// Layout component
+import Header from './components/Header';
+
+// Pages
+import HomePage from './pages/HomePage';
+import MovieDetailsPage from './pages/MovieDetailsPage';
+import SearchResultsPage from './pages/SearchResultsPage';
+import FavoritesPage from './pages/FavoritesPage';
+import LoginPage from './pages/LoginPage';
+import MoodDiscoveryPage from './pages/MoodDiscoveryPage';
+import RecommendationsPage from './pages/RecommendationsPage';
+import BlogPage from './pages/BlogPage';
+import ListsPage from './pages/ListsPage';
+
+// New pages we need to create
+import BlogDetailsPage from './pages/BlogDetailsPage';
+import ListDetailsPage from './pages/ListDetailsPage';
+import DiscussionPage from './pages/DiscussionPage';
+
+// Protected route component
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
+};
+
+const App = () => {
+  const { darkMode } = useMovieContext();
+
+  // Create theme based on dark mode preference
+  const theme = createTheme({
+    palette: {
+      mode: darkMode ? 'dark' : 'light',
+      primary: {
+        main: '#1976d2',
+      },
+      secondary: {
+        main: '#e91e63',
+      },
+      info: {
+        main: '#03a9f4',
+      },
+      success: {
+        main: '#4caf50',
+      },
+    },
+    typography: {
+      fontFamily: [
+        'Roboto',
+        'Arial',
+        'sans-serif',
+      ].join(','),
+    },
+    components: {
+      MuiCard: {
+        styleOverrides: {
+          root: {
+            overflow: 'hidden',
+          },
+        },
+      },
+      MuiAppBar: {
+        styleOverrides: {
+          root: {
+            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+          },
+        },
+      },
+    },
+  });
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <RecommendationProvider>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+
+            <Route path="/" element={
+              <ProtectedRoute>
+                <HomePage />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/search" element={
+              <ProtectedRoute>
+                <SearchResultsPage />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/movie/:id" element={
+              <ProtectedRoute>
+                <MovieDetailsPage />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/favorites" element={
+              <ProtectedRoute>
+                <FavoritesPage />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/moods" element={
+              <ProtectedRoute>
+                <MoodDiscoveryPage />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/moods/:moodId" element={
+              <ProtectedRoute>
+                <MoodDiscoveryPage />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/recommendations" element={
+              <ProtectedRoute>
+                <RecommendationsPage />
+              </ProtectedRoute>
+            } />
+
+            {/* Blog Routes */}
+            <Route path="/blog" element={
+              <ProtectedRoute>
+                <BlogPage />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/blog/:slug" element={
+              <ProtectedRoute>
+                <BlogDetailsPage />
+              </ProtectedRoute>
+            } />
+
+            {/* Lists Routes */}
+            <Route path="/lists" element={
+              <ProtectedRoute>
+                <ListsPage />
+              </ProtectedRoute>
+            } />
+
+            <Route path="/list/:id" element={
+              <ProtectedRoute>
+                <ListDetailsPage />
+              </ProtectedRoute>
+            } />
+
+            {/* Discussion Routes */}
+            <Route path="/discussion/:id" element={
+              <ProtectedRoute>
+                <DiscussionPage />
+              </ProtectedRoute>
+            } />
+
+            {/* Redirect to home for any unknown routes */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Router>
+      </RecommendationProvider>
+    </ThemeProvider>
+  );
+};
+
+export default App;
