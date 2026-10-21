@@ -1,0 +1,266 @@
+/* Importação de fonte externa para visual moderno */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* Reset e Configurações Globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header & Footer */
+.header, .footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer {
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+}
+
+.header h1 {
+    font-size: 2rem;
+    color: #38bdf8;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: #94a3b8;
+    font-size: 1rem;
+}
+
+/* Container Principal */
+.main-container {
+    padding: 30px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* 
+  =======================================================
+  20 PROPRIEDADES DE FLEXBOX (DEVIDAMENTE IDENTIFICADAS)
+  =======================================================
+*/
+
+.flex-container {
+    /* PROPRIEDADE FLEXBOX 1: Define o contexto flexível */
+    display: flex;
+
+    /* PROPRIEDADE FLEXBOX 2: Define a direção dos eixos principais */
+    flex-direction: row;
+
+    /* PROPRIEDADE FLEXBOX 3: Permite a quebra dos elementos em múltiplas linhas */
+    flex-wrap: wrap;
+
+    /* PROPRIEDADE FLEXBOX 4: Atalho para flex-direction e flex-wrap */
+    flex-flow: row wrap;
+
+    /* PROPRIEDADE FLEXBOX 5: Alinhamento e distribuição dos elementos no eixo principal */
+    justify-content: space-around;
+
+    /* PROPRIEDADE FLEXBOX 6: Alinhamento no eixo cruzado (transversal) */
+    align-items: stretch;
+
+    /* PROPRIEDADE FLEXBOX 7: Alinhamento das linhas do container quando há espaço sobressalente no eixo cruzado */
+    align-content: space-between;
+
+    /* PROPRIEDADE FLEXBOX 8: Espaçamento entre as colunas/linhas no container flex */
+    gap: 25px;
+
+    /* PROPRIEDADE FLEXBOX 9: Espaçamento específico entre linhas */
+    row-gap: 30px;
+
+    /* PROPRIEDADE FLEXBOX 10: Espaçamento específico entre colunas */
+    column-gap: 20px;
+}
+
+/* 
+  =======================================================
+  PROPRIEDADES DO BOX MODEL NOS 20 ELEMENTOS (.card)
+  Valores atribuídos em: Content, Padding, Border e Margin
+  =======================================================
+*/
+
+.card {
+    /* --- 1. CONTENT (Conteúdo/Dimensões) --- */
+    width: 260px;
+    min-width: 240px;
+    max-width: 320px;
+    height: auto;
+    min-height: 280px;
+
+    /* --- 2. PADDING (Espaçamento Interno) --- */
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 24px;
+    padding-left: 20px;
+
+    /* --- 3. BORDER (Borda) --- */
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(56, 189, 248, 0.3);
+    border-radius: 16px;
+
+    /* --- 4. MARGIN (Espaçamento Externo) --- */
+    margin-top: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+
+    /* Estilização Adicional visual */
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+
+    /* Flexbox interno nos cards para organizar ícone, título, texto e botão */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #38bdf8;
+    box-shadow: 0 15px 30px rgba(56, 189, 248, 0.2);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    color: #f1f5f9;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.card-btn {
+    background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    width: 100%;
+}
+
+.card-btn:hover {
+    opacity: 0.9;
+}
+
+/* 
+  =======================================================
+  PROPRIEDADES FLEXBOX INDIVIDUAIS (FLEX ITEMS)
+  =======================================================
+*/
+
+/* PROPRIEDADE FLEXBOX 11: order - Altera a ordem visual de um item flex */
+.card-1 {
+    order: 1;
+}
+
+/* PROPRIEDADE FLEXBOX 12: flex-grow - Capacidade de um item crescer se necessário */
+.card-2 {
+    flex-grow: 1;
+}
+
+/* PROPRIEDADE FLEXBOX 13: flex-shrink - Capacidade de um item encolher se necessário */
+.card-3 {
+    flex-shrink: 1;
+}
+
+/* PROPRIEDADE FLEXBOX 14: flex-basis - Tamanho inicial do item antes de distribuir o espaço restante */
+.card-4 {
+    flex-basis: 280px;
+}
+
+/* PROPRIEDADE FLEXBOX 15: flex - Atalho para flex-grow, flex-shrink e flex-basis */
+.card-5 {
+    flex: 1 1 260px;
+}
+
+/* PROPRIEDADE FLEXBOX 16: align-self - Sobrescreve o align-items para este item específico */
+.card-6 {
+    align-self: flex-start;
+}
+
+.card-7 {
+    align-self: center;
+}
+
+.card-8 {
+    align-self: flex-end;
+}
+
+.card-9 {
+    align-self: stretch;
+}
+
+.card-10 {
+    order: 2;
+}
+
+/* PROPRIEDADE FLEXBOX 17: flex-grow com fator diferenciado para destaque */
+.card-11 {
+    flex-grow: 2;
+}
+
+/* PROPRIEDADE FLEXBOX 18: flex-shrink desativado (mantém tamanho estrito) */
+.card-12 {
+    flex-shrink: 0;
+}
+
+/* PROPRIEDADE FLEXBOX 19: flex-basis percentual para layout responsivo */
+.card-13 {
+    flex-basis: 30%;
+}
+
+/* PROPRIEDADE FLEXBOX 20: align-self baseline para alinhamento pela linha de base do texto */
+.card-14 {
+    align-self: baseline;
+}
+
+/* Cartões restantes mantendo flexibilidade e padrão do grid */
+.card-15, .card-16, .card-17, .card-18, .card-19, .card-20 {
+    flex: 1 0 250px;
+}
+
+/* Responsividade Medida */
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 100%;
+        max-width: 100%;
+    }
+}

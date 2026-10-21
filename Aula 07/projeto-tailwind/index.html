@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard TechFlow - Tailwind CSS</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-50 bg-slate-800/80 backdrop-blur-md border-b border-slate-700 px-6 py-4 flex items-center justify-between shadow-lg">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center font-bold text-xl text-white shadow-md shadow-indigo-500/20">
+        TF
+      </div>
+      <h1 class="text-xl font-bold tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+        TechFlow Dashboard
+      </h1>
+    </div>
+
+    <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+      <a href="#" class="text-indigo-400 hover:text-indigo-300 transition-colors duration-200">Visão Geral</a>
+      <a href="#" class="text-slate-400 hover:text-slate-200 transition-colors duration-200">Projetos</a>
+      <a href="#" class="text-slate-400 hover:text-slate-200 transition-colors duration-200">Relatórios</a>
+      <a href="#" class="text-slate-400 hover:text-slate-200 transition-colors duration-200">Configurações</a>
+    </nav>
+
+    <div class="flex items-center space-x-4">
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+        ● Online
+      </span>
+      <div class="w-9 h-9 rounded-full bg-slate-700 border-2 border-indigo-500 flex items-center justify-center text-xs font-semibold text-slate-200">
+        US
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="flex-grow p-4 md:p-8 max-w-7xl w-full mx-auto space-y-8">
+    
+    <!-- Hero / Boas-vindas -->
+    <section class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-900/50 via-purple-900/30 to-slate-800 border border-slate-700/60 p-6 md:p-8 shadow-xl">
+      <div class="relative z-10 max-w-2xl space-y-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-indigo-400">Painel de Controle</span>
+        <h2 class="text-2xl md:text-4xl font-extrabold text-white tracking-tight">
+          Bem-vindo de volta, Gabriel!
+        </h2>
+        <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+          Aqui está o resumo dos seus projetos e métricas de desempenho mais recentes. Todos os sistemas estão operando normalmente.
+        </p>
+        <div class="pt-2 flex flex-wrap gap-3">
+          <button class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-lg shadow-md transition-all duration-200 active:scale-95">
+            Novo Relatório
+          </button>
+          <button class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 text-sm font-semibold rounded-lg transition-all duration-200">
+            Exportar Dados
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards de Métricas (Grid Responsivo) -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Card 1 -->
+      <div class="p-6 rounded-xl bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all duration-300 shadow-md hover:shadow-lg flex flex-col justify-between space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium text-slate-400">Receita Total</span>
+          <span class="p-2 bg-indigo-500/10 text-indigo-400 rounded-lg text-xs font-bold">USD</span>
+        </div>
+        <div>
+          <h3 class="text-3xl font-extrabold text-white">$45,231.89</h3>
+          <p class="text-xs text-emerald-400 font-medium mt-1">↑ +20.1% em relação ao mês anterior</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="p-6 rounded-xl bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all duration-300 shadow-md hover:shadow-lg flex flex-col justify-between space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium text-slate-400">Usuários Ativos</span>
+          <span class="p-2 bg-purple-500/10 text-purple-400 rounded-lg text-xs font-bold">Qtd</span>
+        </div>
+        <div>
+          <h3 class="text-3xl font-extrabold text-white">+2,350</h3>
+          <p class="text-xs text-emerald-400 font-medium mt-1">↑ +180.1% nesta semana</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="p-6 rounded-xl bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all duration-300 shadow-md hover:shadow-lg flex flex-col justify-between space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium text-slate-400">Vendas</span>
+          <span class="p-2 bg-pink-500/10 text-pink-400 rounded-lg text-xs font-bold">Taxa</span>
+        </div>
+        <div>
+          <h3 class="text-3xl font-extrabold text-white">+12,234</h3>
+          <p class="text-xs text-rose-400 font-medium mt-1">↓ -4.2% em relação ao mês anterior</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="p-6 rounded-xl bg-slate-800 border border-slate-700/80 hover:border-slate-600 transition-all duration-300 shadow-md hover:shadow-lg flex flex-col justify-between space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium text-slate-400">Servidores</span>
+          <span class="p-2 bg-emerald-500/10 text-emerald-400 rounded-lg text-xs font-bold">Status</span>
+        </div>
+        <div>
+          <h3 class="text-3xl font-extrabold text-white">99.9%</h3>
+          <p class="text-xs text-emerald-400 font-medium mt-1">Uptime excelente</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Seção Principal: Tabela de Atividades & Card Lateral (Grid 3 colunas em telas grandes) -->
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Tabela / Lista de Projetos (Span 2 colunas) -->
+      <div class="lg:col-span-2 bg-slate-800 rounded-xl border border-slate-700/80 p-6 shadow-md space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-bold text-white">Projetos Recentes</h3>
+          <a href="#" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 underline">Ver todos</a>
+        </div>
+        
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm text-slate-300">
+            <thead class="text-xs uppercase bg-slate-900/60 text-slate-400 border-b border-slate-700">
+              <tr>
+                <th scope="col" class="py-3 px-4">Projeto</th>
+                <th scope="col" class="py-3 px-4">Status</th>
+                <th scope="col" class="py-3 px-4">Progresso</th>
+                <th scope="col" class="py-3 px-4 text-right">Ação</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-700/60">
+              <tr class="hover:bg-slate-700/30 transition-colors">
+                <td class="py-3.5 px-4 font-semibold text-white">Refatoração Tailwind UI</td>
+                <td class="py-3.5 px-4">
+                  <span class="inline-block px-2 py-0.5 text-xs font-medium rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    Concluído
+                  </span>
+                </td>
+                <td class="py-3.5 px-4">
+                  <div class="w-full bg-slate-700 rounded-full h-2">
+                    <div class="bg-emerald-500 h-2 rounded-full w-full"></div>
+                  </div>
+                </td>
+                <td class="py-3.5 px-4 text-right">
+                  <button class="text-slate-400 hover:text-white font-medium text-xs">Detalhes</button>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-700/30 transition-colors">
+                <td class="py-3.5 px-4 font-semibold text-white">API de Autenticação</td>
+                <td class="py-3.5 px-4">
+                  <span class="inline-block px-2 py-0.5 text-xs font-medium rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                    Em Progresso
+                  </span>
+                </td>
+                <td class="py-3.5 px-4">
+                  <div class="w-full bg-slate-700 rounded-full h-2">
+                    <div class="bg-amber-500 h-2 rounded-full w-3/4"></div>
+                  </div>
+                </td>
+                <td class="py-3.5 px-4 text-right">
+                  <button class="text-slate-400 hover:text-white font-medium text-xs">Detalhes</button>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-700/30 transition-colors">
+                <td class="py-3.5 px-4 font-semibold text-white">Integração Stripe</td>
+                <td class="py-3.5 px-4">
+                  <span class="inline-block px-2 py-0.5 text-xs font-medium rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                    Planejado
+                  </span>
+                </td>
+                <td class="py-3.5 px-4">
+                  <div class="w-full bg-slate-700 rounded-full h-2">
+                    <div class="bg-indigo-500 h-2 rounded-full w-1/4"></div>
+                  </div>
+                </td>
+                <td class="py-3.5 px-4 text-right">
+                  <button class="text-slate-400 hover:text-white font-medium text-xs">Detalhes</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Card Lateral (Notificações / Avisos) -->
+      <div class="bg-slate-800 rounded-xl border border-slate-700/80 p-6 shadow-md space-y-4 flex flex-col justify-between">
+        <div class="space-y-3">
+          <h3 class="text-lg font-bold text-white">Alertas de Sistema</h3>
+          
+          <div class="p-3.5 bg-slate-900/70 border-l-4 border-amber-500 rounded-r-lg space-y-1">
+            <h4 class="text-sm font-bold text-amber-400">Atualização Pendente</h4>
+            <p class="text-xs text-slate-400">A versão 2.4 da API precisa ser implantada até amanhã às 18h.</p>
+          </div>
+
+          <div class="p-3.5 bg-slate-900/70 border-l-4 border-indigo-500 rounded-r-lg space-y-1">
+            <h4 class="text-sm font-bold text-indigo-400">Backup Automático</h4>
+            <p class="text-xs text-slate-400">Backup realizado com sucesso às 03:00 AM sem nenhuma falha registrada.</p>
+          </div>
+        </div>
+
+        <button class="w-full mt-4 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-bold uppercase tracking-wider rounded-lg border border-slate-600 transition-colors">
+          Gerenciar Notificações
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="mt-auto border-t border-slate-800 bg-slate-900/90 py-6 text-center text-xs text-slate-500">
+    <p>© 2026 TechFlow. Desenvolvido com Tailwind CSS.</p>
+  </footer>
+
+</body>
+</html>
